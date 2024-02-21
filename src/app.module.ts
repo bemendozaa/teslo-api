@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { CommonModule } from './common/common.module';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true, //cuando hace un cambio en la tabla, automaticamente la sincroniza solo usar en desarrollo
-    }), ProductsModule, CommonModule
+    }), ProductsModule, CommonModule, SeedModule
   ],
 })
 export class AppModule {}
